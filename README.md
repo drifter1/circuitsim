@@ -7,3 +7,4 @@ Articles:
 - Electromagnetism Background (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-electromagnetism-background-part-2-python  
 - Mesh Analysis - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-mesh-analysis-python  
 - Nodal Analysis - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-nodal-analysis-python  
+- Modified Mesh Analysis By Inspection - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-mesh-analysis-by-inspection-python  
