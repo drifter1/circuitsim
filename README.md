@@ -9,3 +9,4 @@ Articles:
 - Nodal Analysis - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-nodal-analysis-python  
 - Modified Mesh Analysis By Inspection - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-mesh-analysis-by-inspection-python  
 - Modified Nodal Analysis By Inspection - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-by-inspection-python  
+- Incidence Matrix and Modified Kirchhoff Laws - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-incidence-matrix-and-modified-kirchhoff-laws-python  
