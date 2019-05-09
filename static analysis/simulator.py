@@ -47,7 +47,6 @@ def parseFile(fileName):
 # MAIN FUNCTION
 
 # Initialize component counters
-elementCount = 0
 voltageCount = 0
 currentCount = 0
 resistorCount = 0
