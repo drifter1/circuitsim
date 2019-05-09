@@ -16,4 +16,7 @@ Articles:
 **Modified Nodal Analysis** 
 - Incidence Matrix and Modified Kirchhoff Laws - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-incidence-matrix-and-modified-kirchhoff-laws-python  
 - Modified Nodal Analysis (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-part-1-python  
-- Modified Nodal Analysis (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-part-2-python  
+- Modified Nodal Analysis (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-part-2-python
+
+**Static Analysis** 
+- Static Analysis Implementation (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-1-python  
