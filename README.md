@@ -20,3 +20,4 @@ Articles:
 
 **Static Analysis** 
 - Static Analysis Implementation (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-1-python  
+- Static Analysis Implementation (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-2-python
