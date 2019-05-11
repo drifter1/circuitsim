@@ -1,13 +1,35 @@
 
 class Component:  # circuit component structure
-    def __init__(self, comp_type, high_node, low_node, value):
+    def __init__(self, comp_type, high_str, low_str, value):
+        # component type
         self.comp_type = comp_type
-        self.high_node = high_node
-        self.low_node = low_node
+        # nodes as strings
+        self.high_str = high_str
+        self.low_str = low_str
+        # mapped nodes
+        self.high = -1
+        self.low = -1
+        # component value
         self.value = value
 
     def __repr__(self):
-        return str(self.comp_type) + " " + str(self.high_node) + " " + str(self.low_node) + " " + str(self.value)
+        return str(self.comp_type) + " " + str(self.high) + " " + str(self.low) + " " + str(self.value)
+
+
+class NodeHashtable:  # nodes hash table
+    def __init__(self):
+        self.nodes = {}
+        self.nodeCount = 0
+
+    def addToNodes(self, node_str):
+        # check if node not already added
+        if node_str not in self.nodes:
+            self.nodes[node_str] = self.nodeCount
+            self.nodeCount = self.nodeCount + 1
+        return self.nodes[node_str]
+
+    def __del__(self):
+        del self.nodes
 
 
 def parseFile(fileName):
@@ -44,6 +66,22 @@ def parseFile(fileName):
     # return components
     return components
 
+
+def mapNodes(components):
+    # create hashtable
+    hashtable = NodeHashtable()
+
+    # add '0' node
+    hashtable.addToNodes('0')
+
+    # for all components
+    for component in components:
+        component.high = hashtable.addToNodes(component.high_str)
+        component.low = hashtable.addToNodes(component.low_str)
+
+    return components, hashtable
+
+
 # MAIN FUNCTION
 
 # Initialize component counters
@@ -54,16 +92,28 @@ capacitorCount = 0
 inductorCount = 0
 
 # Parse File
-fileName = "example.spice"
+fileName = "circuit1.sp"
+print("Parsing file...\n")
 components = parseFile(fileName)
 
+# Map nodes
+print("Mapping nodes...\n")
+components, hashtable = mapNodes(components)
+
 # Print Information
+print("Circuit Info")
 print("Component count: ", len(components))
 print("Voltage count: ", voltageCount)
 print("Current count: ", currentCount)
 print("Resistance count: ", resistorCount)
 print("Capacitance count: ", capacitorCount)
 print("Inductance count: ", inductorCount)
+print("Node count: ", hashtable.nodeCount)
+
+print("\nNodes are mapped as following:")
+for key, val in hashtable.nodes.items():
+    print("\"" + key + "\" :", val)
+
 print("\nCircuit Components:")
 for i in range(0, len(components)):
     print(components[i])
