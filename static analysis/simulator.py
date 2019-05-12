@@ -1,3 +1,7 @@
+import numpy as np
+
+np.set_printoptions(precision=3, suppress=True)
+
 
 class Component:  # circuit component structure
     def __init__(self, comp_type, high_str, low_str, value):
@@ -82,6 +86,95 @@ def mapNodes(components):
     return components, hashtable
 
 
+def calculateMatrices(components, nodeCount):
+
+    # use global scope variables for component counts
+    global voltageCount, inductorCount
+
+    # calculate g2 components
+    g2Count = voltageCount + inductorCount
+    print("Group 2 count:", g2Count)
+
+    # calculate matrix size
+    matrixSize = nodeCount + g2Count - 1
+    print("Matrix size:", matrixSize, "\n")
+
+    # define Matrices
+    A = np.zeros((matrixSize, matrixSize))
+    b = np.zeros(matrixSize)
+
+    # Group 2 component index
+    g2Index = matrixSize - g2Count
+
+    # loop through all components
+    for component in components:
+        # store component info in temporary variable
+        high = component.high
+        low = component.low
+        value = component.value
+
+        if component.comp_type == 'R':
+            # affects G-matrix of A
+            # diagonal self-conductance of node
+            if high != 0:
+                A[high - 1][high - 1] = A[high - 1][high - 1] + 1/value
+            if low != 0:
+                A[low - 1][low - 1] = A[low - 1][low - 1] + 1/value
+
+            # mutual conductance between nodes
+            if high != 0 and low != 0:
+                A[high - 1][low - 1] = A[high - 1][low - 1] - 1/value
+                A[low - 1][high - 1] = A[low - 1][high - 1] - 1/value
+        
+        # elif component.comp_type == 'C':
+            # Capacitance is an open circuit for Static Analysis
+
+        elif component.comp_type == 'L':
+            # closed circuit  in Static Analysis: 0 resistance and 0 voltage
+            # affects the B and C matrices of A
+            if high != 0:
+                A[high - 1][g2Index] = A[high - 1][g2Index] + 1
+                A[g2Index][high - 1] = A[g2Index][high - 1] + 1
+            if low != 0:
+                A[low - 1][g2Index] = A[low - 1][g2Index] - 1
+                A[g2Index][low - 1] = A[g2Index][low - 1] - 1
+
+            # affects b-matrix
+            b[g2Index] = 0
+
+            # increase G2 index
+            g2Index = g2Index + 1
+
+        elif component.comp_type == 'V':
+            # affects the B and C matrices of A
+            if high != 0:
+                A[high - 1][g2Index] = A[high - 1][g2Index] + 1
+                A[g2Index][high - 1] = A[g2Index][high - 1] + 1
+            if low != 0:
+                A[low - 1][g2Index] = A[low - 1][g2Index] - 1
+                A[g2Index][low - 1] = A[g2Index][low - 1] - 1
+
+            # affects b-matrix
+            b[g2Index] = value
+
+            # increase G2 counter
+            g2Index = g2Index + 1
+
+        elif component.comp_type == 'I':
+            # affects b-matrix
+            if high != 0:
+                b[high - 1] = b[high - 1] - value
+            if low != 0:
+                b[low - 1] = b[low - 1] + value
+
+    return A, b
+
+
+def solveSystem(A, b):
+    x = np.linalg.solve(A, b)
+    return x
+
+
 # MAIN FUNCTION
 
 # Initialize component counters
@@ -92,7 +185,7 @@ capacitorCount = 0
 inductorCount = 0
 
 # Parse File
-fileName = "circuit1.sp"
+fileName = "circuit2.sp"
 print("Parsing file...\n")
 components = parseFile(fileName)
 
@@ -117,3 +210,13 @@ for key, val in hashtable.nodes.items():
 print("\nCircuit Components:")
 for i in range(0, len(components)):
     print(components[i])
+
+# Calculate and solve system
+print("\nCalculating MNA Matrices...\n")
+A, b = calculateMatrices(components, hashtable.nodeCount)
+print("A:\n", A)
+print("b:\n", b)
+
+print("\nSolving System...\n")
+x = solveSystem(A, b)
+print("x:\n", x)
