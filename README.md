@@ -13,7 +13,7 @@ Articles:
 - Modified Mesh Analysis By Inspection - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-mesh-analysis-by-inspection-python  
 - Modified Nodal Analysis By Inspection - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-by-inspection-python
 
-**Modified Nodal Analysis** 
+**Modified Nodal Analysis**  
 - Incidence Matrix and Modified Kirchhoff Laws - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-incidence-matrix-and-modified-kirchhoff-laws-python  
 - Modified Nodal Analysis (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-part-1-python  
 - Modified Nodal Analysis (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-modified-nodal-analysis-part-2-python
@@ -22,3 +22,6 @@ Articles:
 - Static Analysis Implementation (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-1-python  
 - Static Analysis Implementation (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-2-python  
 - Static Analysis Implementaiton (part 3) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-3-python
+
+**Sparse Matrix Optimization**  
+- Sparse Matrix Optimization (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-sparse-matrix-optimization-part-1-python
