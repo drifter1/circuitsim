@@ -24,4 +24,5 @@ Articles:
 - Static Analysis Implementaiton (part 3) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-static-analysis-implementation-part-3-python
 
 **Sparse Matrix Optimization**  
-- Sparse Matrix Optimization (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-sparse-matrix-optimization-part-1-python
+- Sparse Matrix Optimization (part 1) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-sparse-matrix-optimization-part-1-python  
+- Sparse Matrix Optimization (part 2) - https://steemit.com/utopian-io/@drifter1/electronic-circuit-simulation-sparse-matrix-optimization-part-2-python
