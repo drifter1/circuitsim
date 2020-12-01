@@ -185,7 +185,7 @@ capacitorCount = 0
 inductorCount = 0
 
 # Parse File
-fileName = "circuit2.sp"
+fileName = "circuit2.spice"
 print("Parsing file...\n")
 components = parseFile(fileName)
 
